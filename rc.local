@@ -1,0 +1,67 @@
+#my local preference
+
+#firefox & thunderbird
+export PATH=/home/fanf/bin/firefox:/home/fanf/bin/thunderbird:${PATH}
+
+#Java
+export JAVA_HOME="/home/fanf/java/jdk"
+#Java / Maven
+export PATH=/home/fanf/java/jdk/bin:/home/fanf/java/ant/bin:/home/fanf/java/mvn/bin:${PATH}
+#Scala
+export SCALA_HOME="/home/fanf/java/scala"
+export PATH=/home/fanf/java/scala/bin:${PATH}
+
+export PATH=/home/fanf/bin:${PATH}
+export PATH=/home/fanf/bin/thunderbird:${PATH}
+
+#that umask is assumed under Ubuntu
+umask 0022
+
+#E17
+export PATH="/opt/e17/bin:$PATH"
+export PYTHONPATH="/opt/e17/lib/python2.7/site-packages:$PYTHONPATH"
+export LD_LIBRARY_PATH="/opt/e17/lib:$LD_LIBRARY_PATH"
+
+#mound android with MFT
+alias android-connect="mtpfs -o allow_other /media/GalaxyNexus"
+alias android-disconnect="fusermount -u /media/GalaxyNexus"
+
+#no sound
+
+setterm -bfreq 0
+xset b off
+
+# set up the env for LaFoSec/ANSSI Latex build
+
+#export LAFOSEC_PATH="/home/fanf/NORMATION/CLIENTS/ANSSI/svn-lafosec"
+#export TEXINPUTS=$TEXINPUTS:$LAFOSEC_PATH/docs/share/latex//
+#export BIBINPUTS=$BIBINPUTS:$LAFOSEC_PATH/docs/share/bibtex
+#export BSTINPUTS=$BSTINPUTS:$LAFOSEC_PATH/docs/share/bibtex/bst// 
+#export RUDDER_WSP="/home/fanf/java/workspaces/rudder-project"
+#export RUDDER_CODE="${RUDDER_WSP=}/rudder-parent-pom ${RUDDER_WSP=}/rudder-commons ${RUDDER_WSP=}/scala-ldap ${RUDDER_WSP=}/ldap-inventory ${RUDDER_WSP=}/cf-clerk ${RUDDER_WSP=}/rudder ${RUDDER_WSP=}/rudder-plugin-helloworld" 
+
+# Correspondance touches-fonction
+bindkey '^A'    beginning-of-line       # Home
+bindkey '^E'    end-of-line             # End
+bindkey '^D'    delete-char             # Del
+bindkey '[3~' delete-char             # Del
+bindkey '[2~' overwrite-mode          # Insert
+bindkey '[5~' history-search-backward # PgUp
+bindkey '[6~' history-search-forward  # PgDn
+
+# Console linux, dans un screen ou un rxvt
+if [ "$TERM" = "linux" -o "$TERM" = "screen" -o "$TERM" = "rxvt" ]
+then
+  # Correspondance touches-fonction spécifique
+  bindkey '[1~' beginning-of-line       # Home
+  bindkey '[4~' end-of-line             # End
+fi
+
+# xterm
+if [ "$TERM" = "xterm" ]
+then
+  # Correspondance touches-fonction spécifique
+  bindkey '[H'  beginning-of-line       # Home
+  bindkey '[F'  end-of-line             # End
+fi
+
