@@ -65,3 +65,10 @@ then
   bindkey '[F'  end-of-line             # End
 fi
 
+
+#histories
+HISTFILE=~/.zsh/histories/$(hostname)
+HISTSIZE=1000000
+SAVEHIST=1000000
+
+
