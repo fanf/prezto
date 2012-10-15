@@ -118,12 +118,13 @@ alias pbp='pbpaste'
 alias df='df -kh'
 alias du='du -kh'
 
-if (( $+commands[htop] )); then
-  alias top=htop
-else
+#do not alias top to htop
+#if (( $+commands[htop] )); then
+#  alias top=htop
+#else
   alias topc='top -o cpu'
   alias topm='top -o vsize'
-fi
+#fi
 
 # Miscellaneous
 
