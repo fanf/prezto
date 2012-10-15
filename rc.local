@@ -10,9 +10,11 @@ export PATH=/home/fanf/java/jdk/bin:/home/fanf/java/ant/bin:/home/fanf/java/mvn/
 #Scala
 export SCALA_HOME="/home/fanf/java/scala"
 export PATH=/home/fanf/java/scala/bin:${PATH}
+export PATH=/home/fanf/java/sbt/bin:${PATH}
 
 export PATH=/home/fanf/bin:${PATH}
 export PATH=/home/fanf/bin/thunderbird:${PATH}
+export PATH=/home/fanf/bin/SublimeText2:${PATH}
 
 #that umask is assumed under Ubuntu
 umask 0022
