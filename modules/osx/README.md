@@ -20,7 +20,6 @@ Functions
   - `pfd` prints the current _Finder_ directory.
   - `pfs` prints the current _Finder_ selection.
   - `tab` creates a new tab (works in both _Terminal_ and [_iTerm_][3]).
-  - `trash` moves files and folders to _Trash_.
 
 Authors
 -------
@@ -32,5 +31,5 @@ Authors
 [1]: http://www.apple.com/macosx/
 [2]: http://bruji.com/bwana/
 [3]: http://www.iterm2.com/
-[4]: https://github.com/sorin-ionescu/oh-my-zsh/issues
+[4]: https://github.com/sorin-ionescu/prezto/issues
 

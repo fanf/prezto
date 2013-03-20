@@ -8,7 +8,7 @@
 #
 
 # Load dependencies.
-omodload 'spectrum'
+pmodload 'helper' 'spectrum'
 
 # Correct commands.
 setopt CORRECT
@@ -32,20 +32,23 @@ alias mkdir='nocorrect mkdir'
 alias mv='nocorrect mv'
 alias mysql='nocorrect mysql'
 alias rm='nocorrect rm'
-alias scp='nocorrect scp'
 
 # Disable globbing.
 alias fc='noglob fc'
 alias find='noglob find'
+alias ftp='noglob ftp'
 alias history='noglob history'
 alias locate='noglob locate'
 alias rake='noglob rake'
+alias rsync='noglob rsync'
+alias scp='noglob scp'
+alias sftp='noglob sftp'
 
 # Define general aliases.
 alias _='sudo'
 alias b='${(z)BROWSER}'
 alias cp="${aliases[cp]:-cp} -i"
-alias e='${(z)EDITOR}'
+alias e='${(z)VISUAL:-${(z)EDITOR}}'
 alias ln="${aliases[ln]:-ln} -i"
 alias mkdir="${aliases[mkdir]:-mkdir} -p"
 alias mv="${aliases[mv]:-mv} -i"
@@ -60,21 +63,27 @@ if is-callable 'dircolors'; then
   # GNU Core Utilities
   alias ls='ls --group-directories-first'
 
-  if zstyle -t ':omz:module:utility:ls' color; then
+  if zstyle -t ':prezto:module:utility:ls' color; then
     if [[ -s "$HOME/.dir_colors" ]]; then
       eval "$(dircolors "$HOME/.dir_colors")"
     else
       eval "$(dircolors)"
     fi
+
     alias ls="$aliases[ls] --color=auto"
   else
     alias ls="$aliases[ls] -F"
   fi
 else
   # BSD Core Utilities
-  if zstyle -t ':omz:module:utility:ls' color; then
-    export LSCOLORS="exfxcxdxbxegedabagacad"
-    alias ls="ls -G"
+  if zstyle -t ':prezto:module:utility:ls' color; then
+    # Define colors for BSD ls.
+    export LSCOLORS='exfxcxdxbxGxDxabagacad'
+
+    # Define colors for the completion system.
+    export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=36;01:cd=33;01:su=31;40;07:sg=36;40;07:tw=32;40;07:ow=33;40;07:'
+
+    alias ls='ls -G'
   else
     alias ls='ls -F'
   fi
@@ -167,6 +176,6 @@ function find-exec {
 
 # Displays user owned processes status.
 function psu {
-  ps -{U,u}" ${1:-$USER}" -o 'pid,%cpu,%mem,command' "${(@)argv[2,-1]}"
+  ps -U "${1:-$USER}" -o 'pid,%cpu,%mem,command' "${(@)argv[2,-1]}"
 }
 
