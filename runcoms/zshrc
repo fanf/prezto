@@ -14,6 +14,7 @@ fi
 
 #need to override, else cursor is disapearing when moved around
 ZSH_HIGHLIGHT_STYLES[cursor]='bg=grey'
+ZSH_HIGHLIGHT_STYLES[globbing]='fg=cyan'
 
 source "${ZDOTDIR:-$HOME}/.zsh/rc.local"
 
