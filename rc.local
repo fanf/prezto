@@ -39,6 +39,8 @@ alias android-disconnect="fusermount -u /media/GalaxyNexus"
 
 
 alias pwgen="pwgen -sy 12"
+#alias git-sort-branch="git for-each-ref --sort=committerdate refs/heads/ --format='%(committerdate:short) %(authorname) %(refname:short)'"
+alias git-sort-branch="git for-each-ref --sort=committerdate refs/heads/ --format='%(committerdate:short) %(refname:short)'"
 
 #no sound
 
