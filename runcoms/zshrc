@@ -6,8 +6,8 @@
 #
 
 # Source Prezto.
-if [[ -s "${ZDOTDIR:-$HOME}/.zsh/init.zsh" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zsh/init.zsh"
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
 # Customize to your needs...
@@ -16,5 +16,5 @@ fi
 ZSH_HIGHLIGHT_STYLES[cursor]='bg=grey'
 ZSH_HIGHLIGHT_STYLES[globbing]='fg=cyan'
 
-source "${ZDOTDIR:-$HOME}/.zsh/rc.local"
+source "${ZDOTDIR:-$HOME}/.zprezto/rc.local"
 
