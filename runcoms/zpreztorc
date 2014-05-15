@@ -34,9 +34,9 @@ zstyle ':prezto:load' pmodule \
   'completion' \
   'archive' \
   'command-not-found' \
-  'gpg-agent' \
+  'gpg' \
   'directory' \
-  'ssh-agent' \
+  'ssh' \
   'syntax-highlighting' \
   'history-substring-search' \
   'prompt'
