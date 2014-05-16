@@ -86,7 +86,7 @@ fi
 
 
 #histories
-HISTFILE=~/.zsh/histories/$(hostname)
+HISTFILE=~/.zprezto/histories/$(hostname)
 HISTSIZE=1000000
 SAVEHIST=1000000
 
