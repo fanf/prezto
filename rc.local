@@ -47,7 +47,7 @@ alias apt-get="apt-get -V"
 
 #no sound
 
-setterm -bfreq 0
+#setterm -bfreq 0
 xset b off
 
 # set up the env for LaFoSec/ANSSI Latex build
