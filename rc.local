@@ -28,10 +28,8 @@ export PATH=${ASPECTJ_HOME}/bin:${PATH}
 #that umask is assumed under Ubuntu
 umask 0022
 
-#E17
-export PATH="/opt/e17/bin:$PATH"
-export PYTHONPATH="/opt/e17/lib/python2.7/site-packages:$PYTHONPATH"
-export LD_LIBRARY_PATH="/opt/e17/lib:$LD_LIBRARY_PATH"
+#sanity ensue
+alias vi="vim"
 
 #mound android with MFT
 alias android-connect="mtpfs -o allow_other /media/GalaxyNexus"
@@ -41,6 +39,11 @@ alias android-disconnect="fusermount -u /media/GalaxyNexus"
 alias pwgen="pwgen -sy 12"
 #alias git-sort-branch="git for-each-ref --sort=committerdate refs/heads/ --format='%(committerdate:short) %(authorname) %(refname:short)'"
 alias git-sort-branch="git for-each-ref --sort=committerdate refs/heads/ --format='%(committerdate:short) %(refname:short)'"
+
+alias git-list-merge="git log --min-parents=2 -p --cc"
+
+#display version in apt-get
+alias apt-get="apt-get -V"
 
 #no sound
 
