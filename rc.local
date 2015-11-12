@@ -2,12 +2,25 @@
 
 export LANG="fr_FR.utf8"
 
+# XDG variable, fixing default as in: http://standards.freedesktop.org/basedir-spec/basedir-spec-latest.html
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_CACHE_HOME="$HOME/.cache"
+
+#Have nice font in Java
+export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel"
+
 #firefox & thunderbird
 #export PATH=/home/fanf/bin/firefox:/home/fanf/bin/thunderbird:${PATH}
+
+#rudder-dev
+export PATH=/home/fanf/java/workspaces/rudder-project/rudder-tools/scripts/rudder-dev:${PATH}
 
 #vagrant from http://downloads.vagrantup.com
 export PATH=/opt/vagrant/bin:${PATH}
 
+#ruby
+export PATH=/home/fanf/.gem/ruby/2.2.0/bin:${PATH}
 
 #Java
 export JAVA_HOME="/home/fanf/java/jdk"
@@ -37,10 +50,14 @@ alias android-disconnect="fusermount -u /media/GalaxyNexus"
 
 
 alias pwgen="pwgen -sy 12"
+
+# Git, always in English 
+alias git="LC_ALL=C git"
+
 #alias git-sort-branch="git for-each-ref --sort=committerdate refs/heads/ --format='%(committerdate:short) %(authorname) %(refname:short)'"
 alias git-sort-branch="git for-each-ref --sort=committerdate refs/heads/ --format='%(committerdate:short) %(refname:short)'"
-
 alias git-list-merge="git log --min-parents=2 -p --cc"
+alias git-commit-in-branch="git branch --contains"
 
 #display version in apt-get
 alias apt-get="apt-get -V"
@@ -65,27 +82,41 @@ bindkey '^E'    end-of-line             # End
 bindkey '^D'    delete-char             # Del
 bindkey '[3~' delete-char             # Del
 bindkey '[2~' overwrite-mode          # Insert
-bindkey '[5~' history-search-backward # PgUp
-bindkey '[6~' history-search-forward  # PgDn
+#bindkey '[5~' history-search-backward # PgUp
+#bindkey '[6~' history-search-forward  # PgDn
 bindkey '^[[1;5C' emacs-forward-word
 bindkey '^[[1;5D' emacs-backward-word
 
+#autoload -U history-search-end
+
+#zle -N history-beginning-search-backward-end history-search-end
+#zle -N history-beginning-search-forward-end history-search-end
+
+#bindkey "\e[A" history-beginning-search-backward-end
+#bindkey "\e[B" history-beginning-search-forward-end
+
+#there seems to have a bug in terminfo for terminology
+#that says $terminfo[kcuu1] is ^[OA where it should be ^[[A
+#so history search does not work
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+
 
 # Console linux, dans un screen ou un rxvt
-if [ "$TERM" = "linux" -o "$TERM" = "screen" -o "$TERM" = "rxvt" ]
-then
+#if [ "$TERM" = "linux" -o "$TERM" = "screen" -o "$TERM" = "rxvt" ]
+#then
   # Correspondance touches-fonction spécifique
-  bindkey '[1~' beginning-of-line       # Home
-  bindkey '[4~' end-of-line             # End
-fi
+#  bindkey '[1~' beginning-of-line       # Home
+#  bindkey '[4~' end-of-line             # End
+#fi
 
 # xterm
-if [ "$TERM" = "xterm" ]
-then
+#if [ "$TERM" = "xterm" ]
+#then
   # Correspondance touches-fonction spécifique
-  bindkey '[H'  beginning-of-line       # Home
-  bindkey '[F'  end-of-line             # End
-fi
+#  bindkey '[H'  beginning-of-line       # Home
+#  bindkey '[F'  end-of-line             # End
+#fi
 
 
 #histories
