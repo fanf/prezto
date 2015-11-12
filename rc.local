@@ -22,6 +22,9 @@ export PATH=/opt/vagrant/bin:${PATH}
 #ruby
 export PATH=/home/fanf/.gem/ruby/2.2.0/bin:${PATH}
 
+#firefox & thunderbird
+#export PATH=/home/fanf/bin/firefox:/home/fanf/bin/thunderbird:${PATH}
+
 #Java
 export JAVA_HOME="/home/fanf/java/jdk"
 #Java / Maven
@@ -65,6 +68,7 @@ alias apt-get="apt-get -V"
 #no sound
 
 #setterm -bfreq 0
+setterm -bfreq 0
 xset b off
 
 # set up the env for LaFoSec/ANSSI Latex build
